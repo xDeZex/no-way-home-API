@@ -43,7 +43,7 @@ app.UseCors(MyAllowSpecificOrigins);
 app.MapGet("/stationreal", async (string siteid, int timewindow) =>
 {
     Console.WriteLine("real");
-    string realkey = "cea6074a2f0248a3b466aae7a88af063";
+    string realkey = "";
     string URLStationReal = "https://api.sl.se/api2/realtimedeparturesv4.json?key=" + realkey;
     var json = await GetJSONAsync($"{ URLStationReal}&siteid={siteid}&timewindow={timewindow}");
     return json;
@@ -52,7 +52,7 @@ app.MapGet("/stationreal", async (string siteid, int timewindow) =>
 app.MapGet("/stationname", async (string station) =>
 {
     Console.WriteLine("name");
-    string namekey = "968f31ed688a44bcbb24bafd5fc5a40b";
+    string namekey = "";
     string URLStationName = "https://api.sl.se/api2/typeahead.json?key=" + namekey;
     var json = await GetJSONAsync($"{ URLStationName}&searchstring={station}&stationsonly=true");
     return json;
